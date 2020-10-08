@@ -1,23 +1,32 @@
 import React from 'react'
 import Layout from '../core/Layout'
-
-const Degrees = () => (
-
-<Layout  title="Degrees"
-         description="Manage Degrees here">
+import {API} from '../config';
 
 
+const Degrees = () => {
 
 
-</Layout>
+    const degree = () => {
 
 
+        fetch(`${API}/Degree`, {method: "GET"}).then(response => {
 
-)
+            return response.json();
+        }).catch(err => console.log(err));
+    };
 
 
+    return (
 
+        <Layout title="STUDENTS LIST" description="Check students list here">
 
+            {
+            degree()
+        } </Layout>
+
+    )
+
+};
 
 
 export default Degrees;

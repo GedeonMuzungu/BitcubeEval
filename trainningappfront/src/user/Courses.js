@@ -1,18 +1,31 @@
 import React from 'react'
 import Layout from '../core/Layout'
-
-const Courses = () => (
-
-<Layout  title="COURSES"
-         description="Manage courses here">
+import {API} from '../config';
 
 
+const Courses = () => {
 
 
-</Layout>
+    const course = () => {
 
 
-)
+        fetch(`${API}/Course`, {method: "GET"}).then(response => {
+
+            return response.json();
+        }).catch(err => console.log(err));
+    }
+
+    return (
+
+        <Layout title="COURSE LIST" description="Check courses list here">
+
+            {
+            course()
+        } </Layout>
+
+    )
+
+};
 
 
 export default Courses;

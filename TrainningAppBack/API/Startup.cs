@@ -23,17 +23,25 @@ namespace API
         public Startup (IConfiguration config)
         {
             _config = config;
-
+            
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services)
         {
+            services.AddCors(opt => 
+            {
+                opt.AddPolicy("CorsPolicy", policy => 
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                });
+            });
             services.AddControllers();
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddDbContext<StoreContext> (apt => apt.UseSqlite (_config.GetConnectionString("DefaultConnection")));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +55,7 @@ namespace API
             app.UseHttpsRedirection ();
 
             app.UseRouting ();
-
+            app.UseCors("CorsPolicy");
             app.UseAuthorization ();
 
             app.UseEndpoints (endpoints =>
