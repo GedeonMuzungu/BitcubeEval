@@ -1,7 +1,6 @@
 import {API} from '../config';
 
 
-
 export const Student = (name, date, start, end, subject, degree) => { // console.log(name, date, start, end, subject, degree)
 
     return fetch(`${API}/Student`, {
@@ -22,3 +21,18 @@ export const Student = (name, date, start, end, subject, degree) => { // console
         console.log(err);
     });
 };
+
+
+export const degree = () => {
+
+
+    return fetch(`${API}/Degree`, {method: "GET"}).then(response => {
+
+        return response.json();
+    }).catch(err => console.log(err));
+
+
+}
+
+ 
+ 

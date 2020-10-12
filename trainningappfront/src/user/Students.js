@@ -5,11 +5,10 @@ import {API} from '../config';
 
 const Students = () => {
 
-
     const student = () => {
 
 
-        fetch(`${API}/Student`, {method: "GET"}).then(response => {
+        return fetch(`${API}/Student`, {method: "GET"}).then(response => {
 
             return response.json();
         }).catch(err => console.log(err));
@@ -17,15 +16,9 @@ const Students = () => {
     }
 
 
-    return (
-
-        <Layout title="STUDENTS LIST" description="Check students list here">
-
-            {
-            student()
-        } </Layout>
-
-    )
+    return (<Layout title="STUDENTS LIST" description="Check students list here"> {
+        student()
+    } </Layout>)
 
 };
 

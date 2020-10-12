@@ -93,7 +93,7 @@ const StudentForm = () => {
 
     const StudentF = () => (
 
-
+<div className="container">
         <form>
 
             <div className="form-group">
@@ -166,6 +166,8 @@ const StudentForm = () => {
 
         </form>
 
+        </div>
+
 
     );
 
@@ -202,7 +204,7 @@ const StudentForm = () => {
     );
 
     return (
-        <Layout title="Student Registration Form" description="Add a new student" className="container col-nd8 offset-nd-2">
+        <Layout title="Student " description="Add a new student to the Degree" className="container col-nd8 offset-nd-2">
 
             {
             showSuccess()

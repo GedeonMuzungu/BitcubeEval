@@ -6,21 +6,23 @@ import {Link} from 'react-router-dom';
 const Lectures = () => {
 
     const LecturerForm = () => (
+
+     
         
-        <div>
-            <ul>
+        <div className="container">
+            <ul align="center">
 
                 <li className="nav navbar-nav">
-                    <Link className="nav-link" to="/degrees">Degrees</Link>
+                    <Link className="nav-link" to="/degrees"><h3>Degrees</h3></Link>
                 </li>
 
                 <li className="nav navbar-nav">
-                    <Link className="nav-link" to="/students">Students</Link>
+                    <Link className="nav-link" to="/students"><h3>Students</h3></Link>
                 </li>
 
             </ul>
 
-            <Link className="nav-link" to="/studentForm">Add a new student Here</Link>
+            <Link align="center" className="nav-link" to="/studentForm"><h3>Add a new student Here</h3></Link>
 
         </div>
     );
